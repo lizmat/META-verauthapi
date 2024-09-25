@@ -3,7 +3,7 @@
 NAME
 ====
 
-META::varauthapi - apply :ver:auth:api from META on classes
+META::verauthapi - apply :ver:auth:api from META on classes
 
 SYNOPSIS
 ========
