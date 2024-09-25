@@ -1,0 +1,28 @@
+{
+  "api": "0",
+  "auth": "zef:lizmat",
+  "authors": [
+    "Elizabeth Mattijsen"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "apply :ver:auth:api from META on classes",
+  "license": "Artistic-2.0",
+  "name": "META::verauthapi",
+  "perl": "6.d",
+  "provides": {
+    "META::verauthapi": "lib/META/verauthapi.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "https://github.com/lizmat/META-verauthapi.git",
+  "tags": [
+    "META",
+    "MODULES"
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}

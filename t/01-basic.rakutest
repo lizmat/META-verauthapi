@@ -1,0 +1,40 @@
+use Test;
+
+my class   A { }
+my module  B { }
+my grammar C { }
+
+my constant $version = "42.666".Version;
+my constant $auth    = "zef:scoobydoo";
+my constant $api     = "137";
+
+my constant %META =
+  provides => {
+    A => "lib/A.rakumod",
+    B => "lib/B.rakumod",
+    C => "lib/C.rakumod",
+  },
+  :$version, :$auth, :$api
+;
+
+# Mock $?DISTRIBUTION object for testing
+class ProvideMeta { method meta() { %META } }
+
+use META::verauthapi ProvideMeta, A, B, C;
+
+sub run-tests(str $when) {
+    for A, B, C -> $type {
+        is-deeply $type.^ver,  $version, ":ver on $type.^name() at $when";
+        is-deeply $type.^auth, $auth,    ":auth on $type.^name() at $when";
+        is-deeply $type.^api,  $api,     ":api on $type.^name() at $when";
+    }
+}
+
+BEGIN {
+    plan 6 * 3;
+    run-tests("compile-time");
+}
+
+run-tests("run-time");
+
+# vim: expandtab shiftwidth=4
